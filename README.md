@@ -1,13 +1,22 @@
-We need several file formats: 
-A Spectral sequence chart file format for the display 
-and a spectral sequences binary format for binary data from the back end.
-A Steenrod module file format (maybe also handle modules over other algebras?)
-The front end format should be suitable for handling in python, javascript (for browser),
-and lua (for lualatex).
-The back end format can be a bit more flexible because I expect all access to be through a
-foreign function interface to Rust, so the only concern is that it should be as backwards
-/ forwards compatible as possible.
+# Spectral Sequence File Formats
 
-We need to consider carefully the tradeoffs between making breaking changes and preserving
+
+
+We need several file formats: 
+1. A Spectral sequence chart file format for the display 
+2. A Spectral sequences data format for binary linear algebra data.
+3. A Steenrod module file format (maybe also handle modules over other algebras?)
+4. A chain complex format for derived modules (maybe joint with the Steenrod module file format?).
+5. A run config format for the resolver?
+
+I think we should try to distinguish between (1) Mathematical data defining a module and (2) configuration data saying what the resolver should do with the data.
+
+The chart format should be suitable for handling in python, javascript (for browser),
+and lua (for lualatex).
+It would be good if it is possible to manipulate the module format without Rust bindings, but that is negotiable.
+I expect all access to the back end format go through a foreign function interface to Rust.
+
+
+We need to consider the tradeoffs between making breaking changes and preserving
 mistakes. In interest of obtaining forwards compatibility it would be a good idea to come
-up with an extensive list of reserved keywords.
+up with an extensive list of reserved keywords and to require editors / viewers to crash as often as possible.
