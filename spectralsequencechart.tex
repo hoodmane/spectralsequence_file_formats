@@ -2,7 +2,9 @@
 \usepackage{geometry}
 \usepackage{amssymb}
 \newcommand\E{\mathrm{E}}
+
 \begin{document}
+
 
 \title{The Spectral Sequence Chart File Format}
 \author{Hood Chatham}
@@ -70,10 +72,7 @@ Then programs could ensure they are compliant with the crashing conditions by ru
 
 Also, are do file formats usually contain requirements of programs that manipulate them, say regarding how they behave when the invariants of the file format aren't satisfied?
 \begin{enumerate}
-\item This isn't a type or anything, but \texttt{infinity} is going to be a specific large positive \texttt{int}.
-    I have used 10000 at various points, but I am not completely in love with that choice.
-    It's hard to turn infinity into a number. Maybe something like "14514179" would stand out clearly in the files.
-    A better option?
+\item This isn't a type or anything, but \texttt{infinity} is defined as the integer 65535.
 \item
     \texttt{Color}.
     This is a \texttt{string}.
